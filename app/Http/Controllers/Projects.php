@@ -26,14 +26,14 @@ class Projects extends Controller
         // $projects= Project::all(); 
         $project_category = DB::select('select * from project_category');
 
-        $activitiesPosts = DB::table('activities')
-                   ->select('project', DB::raw('COUNT(id) as count_activity'))
+        $resultsPosts = DB::table('results')
+                   ->select('project_id', DB::raw('COUNT(id) as count_activity'))
                    ->where('isactive',1)
-                   ->groupBy('project');
+                   ->groupBy('project_id');
  
        $projects = DB::table('projects')
-        ->leftJoinSub($activitiesPosts, 'activities_posts', function ($join) {
-            $join->on('projects.id', '=', 'activities_posts.project');
+        ->leftJoinSub($resultsPosts, 'activities_posts', function ($join) {
+            $join->on('projects.id', '=', 'activities_posts.project_id');
         })->get();
 
 

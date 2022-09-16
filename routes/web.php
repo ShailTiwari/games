@@ -12,6 +12,7 @@ use App\Http\Controllers\Activitys;
 use App\Http\Controllers\Settings;
 use App\Http\Controllers\Dashboard;
 use App\Http\Controllers\Home;
+use App\Http\Controllers\Results;
 
 /*
 |--------------------------------------------------------------------------
@@ -110,4 +111,15 @@ Route::middleware([
     Route::post('save_banner', [Settings::class, 'save_banner'])->name('save_banner');
     Route::post('get_banner_info', [Settings::class, 'get_banner_info'])->name('get_banner_info');
     Route::post('update_banner', [Settings::class, 'update_banner'])->name('update_banner');
+
+
+
+    Route::resource('result', Results::class);
+    Route::get('live_result', [Results::class, 'live'])->name('live_result');
+    Route::post('create_result', [Results::class,'create_result'])->name('create_result');
+    Route::get('results_edit/{id}', [Results::class, 'edit']); 
+    Route::post('update_result', [Results::class, 'update_result'])->name('update_result');
+
+
+
 });

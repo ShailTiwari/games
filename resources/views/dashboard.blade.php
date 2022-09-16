@@ -32,7 +32,7 @@
                                     <div class="row align-items-end">
                                         <div class="col-8">
                                             <h4 class="text-white">{{$projects}} +</h4>
-                                            <h6 class="text-white m-b-0">Project Views</h6>
+                                            <h6 class="text-white m-b-0">Game Views</h6>
                                         </div>
                                         <div class="col-4 text-right">
                                             <canvas id="update-chart-2" height="50"></canvas>
@@ -68,7 +68,7 @@
                                     <div class="row align-items-end">
                                         <div class="col-8">
                                             <h4 class="text-white">{{$activities}}</h4>
-                                            <h6 class="text-white m-b-0">Activity created</h6>
+                                            <h6 class="text-white m-b-0">Result created</h6>
                                         </div>
                                         <div class="col-4 text-right">
                                             <canvas id="update-chart-4" height="50"></canvas>
@@ -86,7 +86,7 @@
                         <div class="col-xl-9 col-md-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h5>Activity Analytics</h5>
+                                    <h5>Result Analytics</h5>
                                     <div class="card-header-right">
                                         <ul class="list-unstyled card-option">
                                             <li><i class="feather icon-maximize full-card"></i></li>

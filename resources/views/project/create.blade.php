@@ -10,7 +10,7 @@
                           <!-- Draggable default card start -->
                           <div class="z-depth-top-0 card">
                               <div class="card-header">
-                                  <h5>Add Project details</h5>
+                                  <h5>Add Game details</h5>
 
                               </div>
                       <div class=" card-block">
@@ -30,7 +30,7 @@
                         />
                         <div class="button-wrapper">
                           <label for="upload" class="me-2 mb-8" tabindex="0">
-                            <span class="d-none d-sm-block">Project Icon</span>
+                            <span class="d-none d-sm-block">Game Icon</span>
                             <i class="bx bx-upload d-block d-sm-none"></i>
                             <input
                               type="file"

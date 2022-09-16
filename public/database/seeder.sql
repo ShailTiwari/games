@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 07, 2022 at 02:13 PM
+-- Generation Time: Sep 16, 2022 at 03:47 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -198,7 +198,7 @@ INSERT INTO `attendances` (`id`, `employee_id`, `start`, `puncin`, `puncout`, `w
 (7, 16, '1988-03-04', '06:14:40', '04:25:05', '04:25:40', '19:36:59', '06:17:46', '13:06:23', 'Voluptas doloremque aut similique saepe eaque odio quis.', 1, 0, 1, NULL, NULL),
 (8, 20, '1977-06-23', '12:37:18', '10:51:22', '13:06:51', '22:52:27', '01:15:40', '15:11:36', 'At alias at ullam perferendis.', 1, 0, 1, NULL, NULL),
 (9, 10, '2009-09-26', '20:55:31', '06:13:22', '06:01:16', '23:36:08', '00:22:45', '14:14:15', 'Dolor iste deleniti nostrum reiciendis autem labore.', 1, 0, 1, NULL, NULL),
-(10, 1, '2007-03-29', '17:34:14', '03:07:16', '07:44:23', '17:13:37', '20:45:08', '05:04:05', 'Animi libero et repellat similique nisi doloremque.', 1, 0, 1, NULL, NULL),
+(10, 1, '2022-09-15', '00:00:11', '03:07:16', '07:44:23', '17:13:37', '20:45:08', '05:04:05', '13', 1, 0, 1, NULL, NULL),
 (11, 20, '1983-10-27', '21:50:23', '08:54:19', '20:55:51', '02:07:22', '20:26:01', '05:31:13', 'Quis enim dolore quis soluta voluptatem facilis.', 1, 0, 1, NULL, NULL),
 (12, 7, '2010-09-17', '23:53:18', '12:56:38', '08:18:57', '16:01:46', '18:47:06', '18:21:49', 'Non et qui repellendus molestiae.', 1, 0, 1, NULL, NULL),
 (13, 16, '2000-08-06', '19:46:15', '21:03:35', '01:08:43', '23:53:16', '09:06:52', '07:54:02', 'Aliquid omnis deleniti perferendis aspernatur maiores dolore soluta.', 1, 0, 1, NULL, NULL),
@@ -218,7 +218,7 @@ INSERT INTO `attendances` (`id`, `employee_id`, `start`, `puncin`, `puncout`, `w
 (27, 20, '2022-02-16', '11:01:21', '00:44:34', '14:46:37', '15:48:41', '12:13:00', '13:27:07', 'Placeat est quia dolores fuga debitis.', 1, 0, 1, NULL, NULL),
 (28, 19, '1977-06-20', '14:38:10', '07:03:07', '03:31:35', '00:29:26', '08:02:53', '04:59:58', 'Expedita placeat est officia eius atque id.', 1, 0, 1, NULL, NULL),
 (29, 13, '1971-12-03', '22:44:22', '09:31:32', '16:42:35', '12:49:07', '16:29:24', '21:44:13', 'Quam alias omnis dicta ut omnis.', 1, 0, 1, NULL, NULL),
-(30, 1, '1991-03-07', '18:18:59', '00:22:01', '02:17:27', '06:35:01', '11:43:48', '09:38:38', 'Est et officiis explicabo sed.', 1, 0, 1, NULL, NULL),
+(30, 1, '2022-09-15', '00:00:12', '00:22:01', '02:17:27', '06:35:01', '11:43:48', '09:38:38', '45', 1, 0, 1, NULL, NULL),
 (31, 4, '2008-04-01', '23:45:54', '22:29:38', '15:44:31', '16:47:50', '16:17:58', '18:43:59', 'Voluptas maxime fugit est facere unde.', 1, 0, 1, NULL, NULL),
 (32, 2, '1992-02-23', '10:49:09', '10:06:42', '14:05:04', '20:41:10', '16:47:23', '12:33:24', 'Non ad quia illo ut.', 1, 0, 1, NULL, NULL),
 (33, 9, '2015-11-20', '05:19:57', '18:38:18', '02:36:07', '09:26:40', '14:45:29', '23:11:59', 'Natus et repellat voluptatibus quae.', 1, 0, 1, NULL, NULL),
@@ -226,11 +226,11 @@ INSERT INTO `attendances` (`id`, `employee_id`, `start`, `puncin`, `puncout`, `w
 (35, 9, '1977-09-07', '02:15:41', '23:12:30', '21:14:03', '05:55:27', '00:36:50', '09:11:45', 'Eaque qui excepturi aut voluptas.', 1, 0, 1, NULL, NULL),
 (36, 8, '1976-02-05', '16:04:28', '05:57:33', '00:57:33', '13:13:24', '11:08:13', '16:56:06', 'Repellat illo sunt ut iusto quia.', 1, 0, 1, NULL, NULL),
 (37, 17, '2017-02-16', '20:31:35', '14:04:09', '01:25:28', '03:51:49', '10:04:24', '13:22:46', 'Ea omnis fugit consequatur delectus impedit velit.', 1, 0, 1, NULL, NULL),
-(38, 1, '1987-03-31', '10:19:05', '08:53:19', '01:56:47', '01:37:15', '04:23:02', '02:51:24', 'Quo qui nihil provident fugit accusamus.', 1, 0, 1, NULL, NULL),
-(39, 1, '1994-02-24', '11:02:35', '18:10:58', '07:30:02', '06:12:52', '12:58:54', '23:21:35', 'Voluptatem aut iure illo voluptatibus ut.', 1, 0, 1, NULL, NULL),
+(38, 1, '2022-09-09', '00:00:22', '08:53:19', '01:56:47', '01:37:15', '04:23:02', '02:51:24', '68', 1, 0, 1, NULL, NULL),
+(39, 1, '2022-09-10', '00:00:44', '18:10:58', '07:30:02', '06:12:52', '12:58:54', '23:21:35', '99', 1, 0, 1, NULL, NULL),
 (40, 14, '1977-08-21', '10:50:47', '15:17:28', '04:11:25', '13:16:00', '17:51:22', '17:52:33', 'Commodi rerum aut est ipsa.', 1, 0, 1, NULL, NULL),
 (41, 12, '1981-05-26', '07:16:52', '07:51:42', '12:09:23', '18:30:17', '18:31:28', '03:32:29', 'Iusto nihil perferendis ut numquam quidem quo molestiae fuga.', 1, 0, 1, NULL, NULL),
-(42, 1, '1991-03-15', '19:07:53', '04:15:47', '18:50:26', '22:14:55', '14:13:11', '09:49:21', 'Ut quam nulla qui repudiandae maiores.', 1, 0, 1, NULL, NULL),
+(42, 1, '2022-09-15', '00:00:16', '04:15:47', '18:50:26', '22:14:55', '14:13:11', '09:49:21', '47', 1, 0, 1, NULL, NULL),
 (43, 6, '1992-11-23', '07:38:28', '11:42:11', '09:05:05', '17:09:40', '03:25:18', '00:57:39', 'Libero sunt magnam est.', 1, 0, 1, NULL, NULL),
 (44, 17, '2019-02-03', '04:40:31', '00:00:17', '18:47:36', '17:47:32', '20:26:22', '17:27:28', 'Omnis non quis soluta dolor.', 1, 0, 1, NULL, NULL),
 (45, 18, '1988-05-28', '16:52:20', '02:35:19', '05:39:23', '20:31:17', '11:00:07', '16:20:50', 'Laboriosam ea alias quia aut et modi a.', 1, 0, 1, NULL, NULL),
@@ -244,7 +244,7 @@ INSERT INTO `attendances` (`id`, `employee_id`, `start`, `puncin`, `puncout`, `w
 (53, 8, '1975-04-05', '06:08:05', '15:23:12', '13:19:06', '15:53:22', '22:04:23', '17:30:56', 'Amet sed et praesentium iusto.', 1, 0, 1, NULL, NULL),
 (54, 17, '1989-03-11', '04:39:24', '21:47:08', '20:03:46', '22:57:11', '05:10:16', '14:19:41', 'Maiores nihil perferendis qui quam cupiditate.', 1, 0, 1, NULL, NULL),
 (55, 4, '2017-05-20', '09:47:26', '18:29:39', '23:18:45', '05:57:28', '08:13:58', '14:06:06', 'Natus quam illo ducimus illum voluptatem esse.', 1, 0, 1, NULL, NULL),
-(56, 1, '2012-11-22', '22:11:47', '09:01:15', '19:13:47', '15:11:27', '18:29:15', '08:18:24', 'Magnam qui assumenda expedita fugiat fugiat iusto.', 1, 0, 1, NULL, NULL),
+(56, 1, '2022-09-01', '00:00:00', '09:01:15', '19:13:47', '15:11:27', '18:29:15', '08:18:24', '88', 1, 0, 1, NULL, NULL),
 (57, 4, '2010-03-25', '15:17:27', '04:50:41', '10:21:19', '02:00:28', '10:01:19', '18:39:55', 'Repellat rerum officiis est deserunt.', 1, 0, 1, NULL, NULL),
 (58, 15, '1983-01-05', '07:19:45', '02:59:01', '21:58:30', '01:29:12', '14:15:27', '22:19:05', 'Et blanditiis voluptatum possimus.', 1, 0, 1, NULL, NULL),
 (59, 3, '1996-10-19', '14:48:35', '18:45:53', '09:54:22', '01:56:47', '20:01:37', '05:15:09', 'Architecto ad corrupti et quis deleniti.', 1, 0, 1, NULL, NULL),
@@ -263,7 +263,7 @@ INSERT INTO `attendances` (`id`, `employee_id`, `start`, `puncin`, `puncout`, `w
 (72, 12, '2016-04-21', '17:22:11', '15:18:16', '10:02:50', '17:51:57', '00:42:56', '20:14:30', 'Molestiae dolore numquam aut et libero alias.', 1, 0, 1, NULL, NULL),
 (73, 9, '1979-08-21', '05:43:45', '00:47:05', '12:59:18', '14:14:57', '20:55:44', '13:21:05', 'Aut minus aliquam voluptatem dignissimos in deserunt.', 1, 0, 1, NULL, NULL),
 (74, 13, '1988-07-15', '23:05:03', '07:03:36', '20:22:46', '05:47:37', '14:28:35', '04:55:24', 'Recusandae minima et laboriosam qui neque.', 1, 0, 1, NULL, NULL),
-(75, 1, '1984-02-03', '22:56:59', '19:59:36', '02:02:39', '03:22:31', '18:10:09', '11:39:12', 'Molestiae modi accusantium vero voluptas qui.', 1, 0, 1, NULL, NULL),
+(75, 1, '2022-09-11', '00:00:00', '19:59:36', '02:02:39', '03:22:31', '18:10:09', '11:39:12', '85', 1, 0, 1, NULL, NULL),
 (76, 15, '1987-01-18', '13:52:58', '10:11:58', '10:36:48', '02:03:03', '01:59:14', '16:19:39', 'Non nisi rerum occaecati maiores.', 1, 0, 1, NULL, NULL),
 (77, 4, '2004-11-27', '02:10:02', '19:30:39', '01:34:00', '05:55:26', '02:52:27', '10:16:20', 'Sunt modi facilis rerum autem rerum laudantium.', 1, 0, 1, NULL, NULL),
 (78, 7, '1998-04-22', '11:27:15', '07:43:58', '22:43:53', '10:44:34', '10:03:36', '09:24:08', 'Consequuntur dignissimos est ipsum debitis dignissimos.', 1, 0, 1, NULL, NULL),
@@ -283,8 +283,8 @@ INSERT INTO `attendances` (`id`, `employee_id`, `start`, `puncin`, `puncout`, `w
 (92, 18, '2017-02-25', '20:08:15', '06:46:53', '14:47:55', '21:53:36', '02:41:31', '18:08:24', 'Dolorum et repellat et et.', 1, 0, 1, NULL, NULL),
 (93, 2, '1988-05-09', '14:55:05', '14:26:05', '06:44:36', '18:50:09', '08:57:05', '00:29:07', 'Et at inventore doloremque ea.', 1, 0, 1, NULL, NULL),
 (94, 5, '1974-11-06', '01:36:12', '19:54:47', '21:07:17', '05:56:34', '21:51:05', '18:11:23', 'Eum debitis natus quam non.', 1, 0, 1, NULL, NULL),
-(95, 1, '2008-08-22', '08:27:25', '05:51:51', '23:25:45', '07:48:29', '06:07:27', '19:04:47', 'Vel accusantium facilis consectetur aut.', 1, 0, 1, NULL, NULL),
-(96, 1, '1979-01-20', '17:39:20', '09:20:19', '21:58:50', '15:28:36', '15:39:33', '07:10:21', 'Laboriosam omnis nulla reprehenderit sit minima quisquam eos.', 1, 0, 1, NULL, NULL),
+(95, 1, '2022-09-13', '00:00:00', '05:51:51', '23:25:45', '07:48:29', '06:07:27', '19:04:47', '22', 1, 0, 1, NULL, NULL),
+(96, 1, '2022-09-12', '00:00:58', '09:20:19', '21:58:50', '15:28:36', '15:39:33', '07:10:21', '58', 1, 0, 1, NULL, NULL),
 (97, 17, '2001-02-09', '14:31:16', '08:55:45', '14:36:27', '15:47:44', '01:14:53', '09:13:51', 'Maiores eius possimus natus quis.', 1, 0, 1, NULL, NULL),
 (98, 6, '1980-10-15', '18:21:41', '17:28:18', '05:25:23', '11:36:57', '19:41:48', '18:07:30', 'Ex ea recusandae temporibus aut.', 1, 0, 1, NULL, NULL),
 (99, 10, '1972-10-24', '23:02:36', '10:37:35', '06:26:30', '12:36:09', '19:06:07', '03:24:37', 'Ducimus est tenetur quia aspernatur.', 1, 0, 1, NULL, NULL),
@@ -613,7 +613,8 @@ INSERT INTO `events` (`id`, `title`, `start`, `end`, `isactive`, `isdelete`, `cr
 (105, 'wet32t', '2022-08-30', '2022-08-31', 1, 0, 1, 1, 1, '2022-09-07 05:58:46', '2022-09-07 05:58:46'),
 (106, 'wt23rt', '2022-08-31', '2022-09-01', 1, 0, 1, 1, 1, '2022-09-07 05:58:49', '2022-09-07 05:58:49'),
 (107, 'rtw2r23t', '2022-08-30', '2022-08-31', 1, 0, 1, 1, 1, '2022-09-07 05:58:54', '2022-09-07 05:58:54'),
-(108, 'r23r23rtf', '2022-08-30', '2022-08-31', 1, 0, 1, 1, 1, '2022-09-07 05:58:58', '2022-09-07 05:58:58');
+(108, 'r23r23rtf', '2022-08-30', '2022-08-31', 1, 0, 1, 1, 1, '2022-09-07 05:58:58', '2022-09-07 05:58:58'),
+(109, 'Sudhir happy bday', '2022-09-07', '2022-09-08', 1, 0, 1, 1, 1, '2022-09-07 07:44:06', '2022-09-07 07:44:06');
 
 -- --------------------------------------------------------
 
@@ -801,7 +802,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (24, '2022_09_01_102612_create_userlogs_table', 1),
 (25, '2022_09_02_052239_create_banners_table', 1),
 (26, '2022_09_05_063529_create_banner_master_table', 1),
-(27, '2022_09_07_064629_create_contacts_table', 2);
+(27, '2022_09_07_064629_create_contacts_table', 2),
+(28, '2022_09_15_133353_create_results_table', 3);
 
 -- --------------------------------------------------------
 
@@ -957,16 +959,13 @@ CREATE TABLE `projects` (
 --
 
 INSERT INTO `projects` (`id`, `title`, `key`, `start`, `description`, `icon_picture`, `category`, `lead`, `default_assigned`, `isconfirm`, `remarks`, `isactive`, `isdelete`, `inuse`, `options`, `created_by`, `updated_by`, `created_at`, `updated_at`) VALUES
-(1, 'Esse aliquid voluptatem et unde.', 'Optio.', '1970-08-16', 'Voluptatem quasi aut aut sit tempora est iste eligendi eveniet non temporibus.', 'no_image.png', 2, 7, 5, 1, 'Quia voluptatem dolor asperiores ullam iste.', 1, 0, 1, NULL, 1, 1, NULL, NULL),
-(2, 'Hic enim et laborum.', 'Quis aperiam.', '1983-12-31', 'Aperiam saepe non perferendis ducimus quasi quia ipsum nihil quo nihil iusto.', 'no_image.png', 1, 19, 13, 1, 'Est incidunt fuga quis qui iste quis libero ut.', 1, 0, 1, NULL, 1, 1, NULL, NULL),
-(3, 'Soluta fugiat qui sint.', 'In.', '2001-04-20', 'Consectetur et hic quo sunt nulla dicta quia tenetur error repellendus sunt.', 'no_image.png', 2, 6, 4, 1, 'Id temporibus non praesentium quae quaerat at.', 1, 0, 1, NULL, 1, 1, NULL, NULL),
-(4, 'Consequatur reiciendis qui voluptatum odio.', 'Numquam repellat.', '2006-06-23', 'Molestias nihil quis est velit quaerat ipsa accusantium.', 'no_image.png', 1, 1, 1, 1, 'Eveniet consequatur accusamus eos.', 1, 0, 1, NULL, 1, 1, NULL, NULL),
-(5, 'Necessitatibus temporibus veniam.', 'Vel.', '1974-10-01', 'Nesciunt voluptas laborum maxime aut occaecati reprehenderit reprehenderit maxime.', 'no_image.png', 2, 18, 5, 1, 'Delectus alias quae ab in error tempora eum sequi.', 1, 0, 1, NULL, 1, 1, NULL, NULL),
-(6, 'Animi aperiam et.', 'Nihil doloribus.', '2009-02-18', 'Natus vero iste numquam sunt distinctio vel.', 'no_image.png', 1, 15, 2, 1, 'Et laudantium aperiam iusto ut perferendis consequuntur culpa.', 1, 0, 1, NULL, 1, 1, NULL, NULL),
-(7, 'Doloribus odio non itaque.', 'Cupiditate vel.', '2007-11-08', 'Repellat expedita perferendis nihil expedita et reprehenderit.', 'no_image.png', 2, 7, 12, 1, 'Nostrum ut doloremque tenetur maxime.', 1, 0, 1, NULL, 1, 1, NULL, NULL),
-(8, 'Aliquid perferendis voluptatem sunt.', 'Ad rerum.', '2005-07-10', 'Quis quia non et ducimus commodi aut rerum omnis facilis molestiae cumque.', 'no_image.png', 5, 1, 15, 1, 'Aperiam eius consequatur ad architecto officia.', 1, 0, 1, NULL, 1, 1, NULL, NULL),
-(9, 'Ut omnis numquam animi vero.', 'Culpa ea.', '1988-03-20', 'Voluptate deserunt qui modi earum asperiores deserunt et inventore cupiditate saepe sit aut tenetur.', 'no_image.png', 5, 8, 2, 1, 'Molestiae quis eveniet rerum reiciendis sit in iusto.', 1, 0, 1, NULL, 1, 1, NULL, NULL),
-(10, 'Quis impedit quam porro.', 'Velit.', '1993-01-28', 'Aut amet reiciendis assumenda quia quas fugit nulla.', 'no_image.png', 3, 19, 16, 1, 'Animi provident nemo ipsa voluptate rem.', 1, 0, 1, NULL, 1, 1, NULL, NULL);
+(1, 'ABC', 'Optio.', '2022-09-16', '', 'no_image.png', 2, 7, 5, 1, '', 1, 0, 1, '1', 1, 1, NULL, '2022-09-16 05:18:17'),
+(2, 'Project 2', 'Quis aperiam.', '1983-12-31', 'Aperiam saepe non perferendis ducimus quasi quia ipsum nihil quo nihil iusto.', 'no_image.png', 1, 19, 13, 1, 'Est incidunt fuga quis qui iste quis libero ut.', 1, 0, 1, NULL, 1, 1, NULL, NULL),
+(3, 'Project 3', 'In.', '2001-04-20', 'Consectetur et hic quo sunt nulla dicta quia tenetur error repellendus sunt.', 'no_image.png', 2, 6, 4, 1, 'Id temporibus non praesentium quae quaerat at.', 1, 0, 1, NULL, 1, 1, NULL, NULL),
+(4, 'Project 4', 'Numquam repellat.', '2006-06-23', 'Molestias nihil quis est velit quaerat ipsa accusantium.', 'no_image.png', 1, 1, 1, 1, 'Eveniet consequatur accusamus eos.', 1, 0, 1, NULL, 1, 1, NULL, NULL),
+(5, 'Project 5', 'Vel.', '1974-10-01', 'Nesciunt voluptas laborum maxime aut occaecati reprehenderit reprehenderit maxime.', 'no_image.png', 2, 18, 5, 1, 'Delectus alias quae ab in error tempora eum sequi.', 1, 0, 1, NULL, 1, 1, NULL, NULL),
+(6, 'Project 6', 'Nihil doloribus.', '2009-02-18', 'Natus vero iste numquam sunt distinctio vel.', 'no_image.png', 1, 15, 2, 1, 'Et laudantium aperiam iusto ut perferendis consequuntur culpa.', 1, 0, 1, NULL, 1, 1, NULL, NULL),
+(11, 'Aloha', 'ALOHA', '2022-09-16', 'segerg', 'no_image.png', 1, 1, 0, 1, '', 1, 1, 1, '1', 1, 1, '2022-09-16 05:19:04', '2022-09-16 05:19:04');
 
 -- --------------------------------------------------------
 
@@ -997,6 +996,42 @@ INSERT INTO `project_category` (`id`, `title`, `description`, `isactive`, `isdel
 (3, 'Supervisor of Police', 'Nam quis et nulla id laboriosam omnis et exercitationem sapiente.', 1, 0, 1, NULL, NULL, NULL, NULL),
 (4, 'Fiber Product Cutting Machine Operator', 'Enim quod qui quasi alias aut aspernatur voluptas tempore ea.', 1, 0, 1, NULL, NULL, NULL, NULL),
 (5, 'General Practitioner', 'Quia id mollitia corporis in ut in et et aut quidem eos id.', 1, 0, 1, NULL, NULL, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `results`
+--
+
+CREATE TABLE `results` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `project_id` int(11) DEFAULT NULL,
+  `result_date` date DEFAULT NULL,
+  `result` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `l1` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `l2` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `l3` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `r1` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `r2` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `r3` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `remarks` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `isactive` int(11) NOT NULL DEFAULT 1,
+  `isdelete` int(11) NOT NULL DEFAULT 0,
+  `inuse` int(11) NOT NULL DEFAULT 1,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `results`
+--
+
+INSERT INTO `results` (`id`, `project_id`, `result_date`, `result`, `l1`, `l2`, `l3`, `r1`, `r2`, `r3`, `remarks`, `isactive`, `isdelete`, `inuse`, `created_at`, `updated_at`) VALUES
+(1, 1, '2022-09-16', '77', '24', '6', '5', '1', '7', '8', NULL, 1, 0, 1, NULL, '2022-09-16 08:04:54'),
+(2, 1, '2022-09-14', '88', '1', '5', '7', '7', '5', '5', NULL, 1, 0, 1, NULL, NULL),
+(3, 1, '2022-09-12', '76', '2', '8', '4', '5', '6', '2', NULL, 1, 0, 1, NULL, NULL),
+(4, 1, '2022-09-11', '00', '6', '7', '5', '6', '7', '7', NULL, 1, 0, 1, NULL, NULL),
+(5, 2, '2022-09-16', '589', '1', '4', '2', '4', '7', '8', NULL, 1, 0, 1, '2022-09-16 06:08:26', '2022-09-16 07:17:43');
 
 -- --------------------------------------------------------
 
@@ -1064,7 +1099,7 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('5FYDRZ09C09V6SH3BDYgnSdV6eEneunuHMx3ctJ9', 101, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:104.0) Gecko/20100101 Firefox/104.0', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoicDJVdkJsUmxZOGl3TmJjdGRhd1ZiQ3I0UHhCS2lSQXdsOG1jSElwYyI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mjc6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9ldmVudCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjEwMTtzOjIxOiJwYXNzd29yZF9oYXNoX3NhbmN0dW0iO3M6NjA6IiQyeSQxMCRhRExrQ2M0YlpHZi9DZFRSTmxXV3hlNUlUM2xjLzZpMlI4WlE3ZkUwMUYuRkhTN2x6VzVabSI7fQ==', 1662551161);
+('05EUp3FUNM1aqMI2H0wCpICRak3KCePOnKNpQYoe', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:104.0) Gecko/20100101 Firefox/104.0', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiRUVic2pKQ0ZOMTVpOXFzSTZGcldmZGxZM05rN1hKSzNOZFpuMzdYcyI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMCI7fX0=', 1663336045);
 
 -- --------------------------------------------------------
 
@@ -1190,7 +1225,12 @@ INSERT INTO `userlogs` (`id`, `action_id`, `module_id`, `title`, `description`, 
 (7, 1, 1, 'Task Type Update', 'Master Task Type Updated', 1, 0, 1, 101, NULL, NULL, NULL),
 (8, 1, 1, 'Task Type Update', 'Master Task Type Updated', 1, 0, 1, 101, NULL, NULL, NULL),
 (9, 1, 1, 'Task Type Update', 'Master Task Type Updated', 1, 0, 1, 101, NULL, NULL, NULL),
-(10, 1, 1, 'Task Type Update', 'Master Task Type Updated', 1, 0, 1, 101, NULL, NULL, NULL);
+(10, 1, 1, 'Task Type Update', 'Master Task Type Updated', 1, 0, 1, 101, NULL, NULL, NULL),
+(11, 1, 1, 'Project Updated', 'Project Information Updated by Admin', 1, 0, 1, 101, NULL, NULL, NULL),
+(12, 1, 1, 'Project Created', 'New Project Created by Admin', 1, 0, 1, 101, NULL, NULL, NULL),
+(13, 1, 1, 'Result Updated', 'Result Updated by Admin', 1, 0, 1, 101, NULL, NULL, NULL),
+(14, 1, 1, 'Result Updated', 'Result Updated by Admin', 1, 0, 1, 101, NULL, NULL, NULL),
+(15, 1, 1, 'Result Updated', 'Result Updated by Admin', 1, 0, 1, 101, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1474,6 +1514,12 @@ ALTER TABLE `project_category`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `results`
+--
+ALTER TABLE `results`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `roles`
 --
 ALTER TABLE `roles`
@@ -1582,7 +1628,7 @@ ALTER TABLE `departments`
 -- AUTO_INCREMENT for table `events`
 --
 ALTER TABLE `events`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=109;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=110;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -1618,7 +1664,7 @@ ALTER TABLE `labels`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `permissions`
@@ -1642,12 +1688,18 @@ ALTER TABLE `posts`
 -- AUTO_INCREMENT for table `projects`
 --
 ALTER TABLE `projects`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `project_category`
 --
 ALTER TABLE `project_category`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `results`
+--
+ALTER TABLE `results`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
@@ -1678,7 +1730,7 @@ ALTER TABLE `task_status`
 -- AUTO_INCREMENT for table `userlogs`
 --
 ALTER TABLE `userlogs`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `users`

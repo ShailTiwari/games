@@ -30,40 +30,49 @@
                                     </a>
                                    
                                 </li>
-
-
-                                
-                               
-                                    @if(1==2)                                     
-                                          <li class="pcoded-hasmenu active pcoded-trigger">
-                                    @else
-                                          <li class="pcoded-hasmenu">     
-                                    @endif
-
+                                    
+                                <li class="pcoded-hasmenu"> 
                                     <a href="javascript:void(0)">
                                         <span class="pcoded-micon"><i class="feather icon-package"></i></span>
-                                        <span class="pcoded-mtext">Project</span>
+                                        <span class="pcoded-mtext">Games</span>
                                         
                                     </a>
-                                    <ul class="pcoded-submenu">
-                                          @if(1==2)                                     
-                                          <li class="active">
-                                         @else
-                                          <li class="">   
-                                          @endif
+                                    <ul class="pcoded-submenu">                                   
+                                          <li class="">  
                                             <a href="{{ route('project.index') }}">
-                                                <span class="pcoded-mtext">Project list</span>
+                                                <span class="pcoded-mtext">Games list</span>
                                             </a>
                                         </li>
                                         <li class=" ">
                                             <a href="{{ route('project.create') }}">
-                                                <span class="pcoded-mtext">Create Project</span>
+                                                <span class="pcoded-mtext">Create New Game</span>
                                             </a>
                                         </li>
+                                    </ul>
+                                </li> 
 
+
+                                <li class="pcoded-hasmenu"> 
+                                    <a href="javascript:void(0)">
+                                        <span class="pcoded-micon"><i class="feather icon-package"></i></span>
+                                        <span class="pcoded-mtext">Result</span>
+                                        
+                                    </a>
+                                    <ul class="pcoded-submenu">
+                                         
+                                          <li class="">   
+                                            <a href="{{ route('live_result') }}">
+                                                <span class="pcoded-mtext">Live Result</span>
+                                            </a>
+                                          </li> 
+                                          <li class="">   
+                                            <a href="{{ route('live_result') }}">
+                                                <span class="pcoded-mtext">Result list</span>
+                                            </a>
+                                          </li>
                                         <li class=" ">
-                                            <a href="{{ route('activity.create') }}">
-                                                <span class="pcoded-mtext">Create Activity</span>
+                                            <a href="{{ route('result.create') }}">
+                                                <span class="pcoded-mtext">Create Result</span>
                                             </a>
                                         </li>
                                     </ul>

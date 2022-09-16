@@ -16,10 +16,10 @@ class Home extends Controller
       $projects= Project::all(); 
       $id=1;
       $game_result = DB::select('select id,project_id,result, DATE_FORMAT(result_date, "%e-%b-%Y") as start from results where project_id='.$id);
-      $live_result = DB::select("SELECT (SELECT result from results where project_id=a.id and 
-date_format(result_date,'%Y-%m-%d') BETWEEN DATE_FORMAT(CURDATE(), '%Y-%m-%d') and DATE_FORMAT(CURDATE(), '%Y-%m-%d') group by project_id limit 1 ) as result,
+      $live_result = DB::select("SELECT ( SELECT CONCAT(l1, '-', l2, '-', l3, ' : ', result, ' : ', r1, '-', r2, '-', r3) AS  result from results where project_id=a.id and 
+date_format(result_date,'%Y-%m-%d') BETWEEN DATE_FORMAT(CURDATE(), '%Y-%m-%d') and DATE_FORMAT(CURDATE(), '%Y-%m-%d') group by project_id limit 1 ) as result,DATE_FORMAT(CURDATE(), '%d-%m-%Y') as today_date,
  a.*  from projects as a  left join results as b 
-ON a.id = b.project_id where a.isactive=1   order by a.id asc");
+ON a.id = b.project_id where a.isactive=1 group by a.id   order by a.id asc");
 
 
       return view('home.home',['page_name'=>$page_name,

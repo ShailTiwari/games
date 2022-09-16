@@ -90,16 +90,12 @@
      <h4>{{$project_info['title']}}</h4>
     <span>{{$project_info['description']}}</span>
   
-
 <table class="table table-bordered">
   <thead class="thead-dark">
     <tr class="table-warning" ><th>Date</th><th>Sun</th><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th>
   </thead>
   <tbody>
-<div class="days">
-<?php
-  //$result_array=$game_result;
- 
+<?php 
             $years =  array( date("Y",strtotime("-1 year")), date("Y") );
             foreach(range(0, 1) as $i) 
             {
@@ -262,8 +258,6 @@
 
 
 <?php } } ?>
-
-  </div>
   </tbody>
 </table>
 

@@ -24,7 +24,7 @@ class Dashboard extends Controller
          
         $users = DB::table('users')->count();
          $projects = DB::table('projects')->count();
-         $activities = DB::table('activities')->count();
+         $activities = DB::table('results')->count();
          $holidays = DB::table('holidays')->count();
          $attendances = DB::table('attendances')->count();
          return view('dashboard',
@@ -41,7 +41,7 @@ class Dashboard extends Controller
 
     public function Get_graph_data()
     {
-          $data = DB::select('SELECT count(a.id) as value,b.title as name from activities as a left join projects as b on a.project=b.id where b.isactive=1 group by a.project');
+          $data = DB::select('SELECT count(a.id) as value,b.title as name from results as a left join projects as b on a.project_id=b.id where b.isactive=1 group by a.project_id');
          echo json_encode($data);
     }
 
