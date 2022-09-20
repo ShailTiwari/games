@@ -49,30 +49,54 @@
   <header id="header" class="fixed-top d-flex align-items-center ">
     <div class="container d-flex align-items-center justify-content-between">
 
-      <h1 class="logo"><a href="/">{{$main_settings[0]->site_name}}
-
-
-
-
-</a></h1>
+      <h1 class="logo"><a href="/"><!-- {{$main_settings[0]->site_name}} -->
+        {{ __('messages.website') }}
+      </a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href=index.html" class="logo"><img src="images/logo.png" alt="" class="img-fluid"></a>-->
 
       <nav id="navbar" class="navbar">
+       
         <ul>
-          <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-          <li><a class="nav-link scrollto" href="#team">Live Result</a></li>
-          <li><a class="nav-link scrollto" href="#about">About</a></li>
+          <li><a class="nav-link scrollto active" href="#hero">{{ __('messages.home') }}</a></li>
+          <li><a class="nav-link scrollto" href="#team">{{ __('messages.live') }}</a></li>
+          <li><a class="nav-link scrollto" href="#about">{{ __('messages.aboutus') }}</a></li>
           <!-- <li><a class="nav-link scrollto" href="#services">Services</a></li> -->
-          <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+          <li><a class="nav-link scrollto" href="#contact">{{ __('messages.contact') }}</a></li>
         </ul>
+         <li> <select class="dropdown changeLang">
+             <option value="en" {{ session()->get('locale') == 'en' ? 'selected' : '' }}>English</option>
+             <option value="hi" {{ session()->get('locale') == 'hi' ? 'selected' : '' }}>Hindi</option>
+          </select>
+        </li>
+         <!-- <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="#">Drop Down 1</a></li>
+              <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
+                <ul>
+                  <li><a href="#">Deep Drop Down 1</a></li>
+                  <li><a href="#">Deep Drop Down 2</a></li>
+                  <li><a href="#">Deep Drop Down 3</a></li>
+                  <li><a href="#">Deep Drop Down 4</a></li>
+                  <li><a href="#">Deep Drop Down 5</a></li>
+                </ul>
+              </li>
+              <li><a href="#">Drop Down 2</a></li>
+              <li><a href="#">Drop Down 3</a></li>
+              <li><a href="#">Drop Down 4</a></li>
+            </ul>
+          </li> -->
+
         <i class="bi bi-list mobile-nav-toggle"></i>
+
       </nav><!-- .navbar -->
 
 
 
     </div>
   </header><!-- End Header -->
+
+                          
 
       
 
@@ -123,54 +147,36 @@
 
 
   <main id="main">
-    
-    <!-- ======= Icon Boxes Section ======= -->
-    <section id="icon-boxes" class="icon-boxes pricing">
-      <!-- <div class="container">
-        <div class="row">
-          @foreach($projects as $project)
-          <div class="col-lg-3 mt-4" data-aos="fade-up" data-aos-delay="100">
-            <div class="icon-box">
-              <div class="pic"><img src="{{ url('images/project/'.$project->icon_picture) }}" class="img-fluid" alt=""  width="50" height="50"></div>
-              <h4 class="title"><a href="{{url('game_view/'.$project->id)}}">{{ $project->title }}</a></h4>
-              <p class="description">{{ $project->description }}</p>
-               <div class="btn-wrap">
-                <a href="{{url('jodi/'.$project->id)}}" class="btn-buy">Jodi</a>
-              </div>
-               <div class="btn-wrap">
-                <a href="{{url('pannel/'.$project->id)}}" class="btn-buy">Pannel</a>
-              </div>
-            </div>             
-          </div>
-           @endforeach
-        </div>
-      </div> -->
 
-      <div class="container " data-aos="fade-up">
+    <section id="services" class="services">
+      <div class="container" data-aos="fade-up">
         <div class="section-title">
-          <h2>Live Result</h2>
-          <p>Game.</p>
+        </br>
+        </br>
+          <h2>{{ __('messages.games') }}</h2>
+          <p>{{ __('messages.games_desc') }}</p>
         </div>
+
         <div class="row">
-          @foreach($projects as $project)
-          <div class="card col-lg-4 mt-4  text-center" data-aos="fade-up" data-aos-delay="100">
-            <div class="card-body member d-flex justify-content-center ">
-              <div class="member-info ">
-                <h6>{{ $project->title }}</h6>
-                <p>{{ $project->description }}</p>              
-                 <div class="justify-content-center ">
-                  <a  class="btn btn-primary p-2 m-4 btn-block" href="{{url('jodi/'.$project->id)}}">Jodi Chart</a>
-                  <a  class="btn btn-success p-2 m-4 btn-block"  href="{{url('pannel/'.$project->id)}}">Pannel Chart</a>
+           @foreach($projects as $project)
+          <div class="col-md-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+            <div class="icon-box">
+              <img src="{{ url('images/project/'.$project->icon_picture) }}" class="img-fluid" alt=""  width="50" height="50">
+              <!-- <i class="bi bi-card-checklist"></i> -->
+              <h4><a href="#">{{ $project->title }}</a></h4>
+              <p>{{ $project->description }}</p>
+            </br>
+               <div class="justify-content-center ">
+                  <a  class="btn btn-primary  m-2 btn-block" href="{{url('jodi/'.$project->id)}}">{{ __('messages.jodi') }}</a>
+                  <a  class="btn btn-success  m-2 btn-block"  href="{{url('pannel/'.$project->id)}}">{{ __('messages.pannel') }}</a>
                 </div>
-              </div>
             </div>
-          </div>
+          </div>          
            @endforeach
         </div>
+
       </div>
-    </section><!-- End Icon Boxes Section -->
-
-
+    </section><!-- End Services Section -->
 
 
 
@@ -178,8 +184,8 @@
     <section id="team" class="team section-bg">
       <div class="container" data-aos="fade-up">
         <div class="section-title">
-          <h2>Live Result</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+          <h2>{{ __('messages.live') }}</h2>
+          <p>{{ __('messages.fast') }}..</p>
         </div>
 
         <div class="row">
@@ -209,8 +215,8 @@
    
                            
                  <div class="justify-content-center ">
-                  <a  class="btn btn-warning p-2 m-4 btn-block" href="{{url('jodi/'.$live_result->id)}}">Jodi Chart</a>
-                  <a  class="btn btn-danger p-2 m-4 btn-block"  href="{{url('pannel/'.$live_result->id)}}">Pannel Chart</a>
+                  <a  class="btn btn-warning p-2 m-4 btn-block" href="{{url('jodi/'.$live_result->id)}}">{{ __('messages.jodi') }}</a>
+                  <a  class="btn btn-danger p-2 m-4 btn-block"  href="{{url('pannel/'.$live_result->id)}}">{{ __('messages.pannel') }}</a>
                 </div>
               </div>
             </div>
@@ -233,25 +239,21 @@
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
-          <h2>About Us</h2>
-          <p>Aloha Technology enables enterprises all over the world to develop a competitive advantage by making their current operations efficient & cost effective. With over 12 years of experience and 3 development centers in India, Aloha Technology is a leading provider of Information Technology Services. .</p>
+          <h2>{{ __('messages.aboutus') }}</h2>.</p>
         </div>
 
         <div class="row content">
           <div class="col-lg-6">
             <p>
-              We have transformed from an offshore development company to an offshore
-R&D investment destination for leading ISVs across the world.
             </p>
             <ul>
-              <li><i class="ri-check-double-line"></i> Get infinite resources and infrastructure at your disposal</li>
-              <li><i class="ri-check-double-line"></i> Experience the Cloud based Project management, Source control and Bug tracking tools.</li>
-              <li><i class="ri-check-double-line"></i> Consult with Industry experienced professionals to ensure a state of the art solution</li>
+              <li><i class="ri-check-double-line"></i> सबसे तेज रिजल्ट </li>
+              <li><i class="ri-check-double-line"></i> सबसे सटीक रिजल्ट.</li>
+              <li><i class="ri-check-double-line"></i> सबसे ज्यादा गेम रिजल्ट</li>
             </ul>
           </div>
           <div class="col-lg-6 pt-4 pt-lg-0">
-            <p>
-             Leading ISVs look at us as a strategic R&D outsourcing and end to end product development choice. We have been retained by companies which are leading innovators in their domains. We achieve this by sharing their product vision right from the competitive pressures they face, to creating new products or adding new features to existing ones and bringing them to market faster. .
+            <p>समय से आगे हवा से तेज ये है कुर्ला कंपनी का खेल 
             </p>
             <a href="#" class="btn-learn-more">Learn More</a>
           </div>
@@ -288,14 +290,14 @@ R&D investment destination for leading ISVs across the world.
         <div class="row">
 
           <div class="col-lg-5 align-items-stretch position-relative video-box" style='background-image: url("images/clients/client-1.png");' data-aos="fade-right">
-            <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ" class="glightbox play-btn mb-4"></a>
+           <!--  <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ" class="glightbox play-btn mb-4"></a> -->
           </div>
 
           <div class="col-lg-7 d-flex flex-column justify-content-center align-items-stretch" data-aos="fade-left">
 
             <div class="content">
-              <h3>Aloha Technology Opportunities in <strong>PAAS-Based Software Products Reviews</strong></h3>
-              <p>Aloha Technology Reviews: Digital disruption is transforming businesses, and how! While earlier, software was developed for users in an enterprise or SME, the emergence of SMACIA has triggered software development
+              <h3>अपना बाजार हमारी वेबसाइट साईट में डलवाने के लिए आज ही हमसे सम्पर्क करें <strong>*रेट/चार्ज भी दूसरी वेबसाइट साइट्स से बहुत कम में *</strong></h3>
+              <p>मात्र 5 मिनट में रिजल्ट वेबसाइट साइट पर लग जाएगा *एडमिन पैनल से आप ही अपना रिजल्ट/रिकॉर्ड डाल सकते है *टाइम टू टाइम अपडेट कर सकते है. 
               </p>
             </div>
 
@@ -311,122 +313,21 @@ R&D investment destination for leading ISVs across the world.
     </section><!-- End Why Us Section -->
 
     <!-- ======= Services Section ======= -->
-   <section id="services" class="services">
+   <!-- <section id="services" class="services">
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
-          <h2>This Month  Result</h2>
+          <h2>{{ __('messages.thisresult') }}</h2>
           <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
         </div>
 
         <div class="row">
-          <!-- <div class="col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
-            <div class="icon-box">
-              <i class="bi bi-card-checklist"></i>
-              <h4><a href="#">Lorem Ipsum</a></h4>
-              <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
-            </div>
-          </div> -->
-          <table class="table table-bordered">
-  <thead class="thead-dark">
-    <tr class="table-warning" ><th>Sun</th><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th>
-  </thead>
-  <tbody>
-<div class="days">
-@php
-            $years =  array(date("Y") );
-            $month = date('n');
-            foreach(range(0, 0) as $i) 
-            {
-            $year=$years[$i];
-            $months =  array( 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec' );
-            $months_int =  array( '01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12' );
-            $days = array( 31,(strtotime("1 Mar ".$year) - strtotime("1 Feb ".$year)) / ( 24 * 60 * 60 ),31, 30, 31, 30, 31, 31, 30, 31, 30, 31 );
-            $wday = array( '', '', '', '', '', '', '' );
-            $cal = array();
-            foreach(range(0, 11) as $i) 
-            {
-              //$month = date('n');
-              $firstday = getdate(strtotime('1 '.$months[$i].' '.$year));
-              $fromday = $firstday['wday'];
-              $leftday =  7 - ( $fromday + $days[$i] ) % 7;
-              $cal[] = array_merge( array_slice($wday, 0, $fromday),
-                                    range(1, $days[$i]),
-                                    array_slice($wday, 0, $leftday)
-                                  );
-            }
-
-             foreach(range($month-1, $month-1) as $i)
-             {
-              $totaldays = 0;
-              $totaldays = cal_days_in_month(CAL_GREGORIAN, $months_int[$i], $year); 
-               $start_date='1';
-                foreach($cal[$i] as $k => $v) 
-                {
-                 
-
-                   $class_colour="";  
-                   $current_date=$v.'-'.$months[$i].'-'.$year; 
-                   $to_date=date("d-M-Y");
-                   if ($current_date==$to_date) 
-                   {                     
-                     $current_date="aa";
-                   }
-
-                   foreach ($game_result as $key => $val) 
-                            {
-                             if ($v!='' && $v.'-'.$months[$i].'-'.$year == $val->start) 
-                              {
-                                $z= $val->result;
-                                $array = str_split($z);
-                                if($array[0]==$array[1])
-                                {
-                                $class_colour="bg-danger";
-                                }
-
-                                break;
-
-                              }
-                              else if ($v!='')
-                              {
-                                $z='**';
-                              }
-                              else
-                              {
-                                $z='';
-                              }
-                             }
-
-
-
-
-
-
-
-      $last_date=$totaldays;
-      if($k && !($k % 7)) 
-      {
-         echo "</tr><tr>";
-
-      }
-
-    
-       echo "<td  id=".$current_date." class=".$class_colour.">{$z}</td>";
-    }
-   @endphp
-    </tr>
-
-
-@php } } @endphp
-
-  </div>
-  </tbody>
-</table>
-
+        
+        
         </div>
 
       </div>
-    </section> 
+    </section>  -->
     <!-- End Services Section -->
     
     <!-- ======= Cta Section ======= -->
@@ -448,7 +349,7 @@ R&D investment destination for leading ISVs across the world.
     <!-- End Cta Section -->
 
     <!-- ======= Portfoio Section ======= -->
-     <section id="portfolio" class="portfoio">
+    <!--  <section id="portfolio" class="portfoio">
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
@@ -533,14 +434,14 @@ R&D investment destination for leading ISVs across the world.
         </div>
 
       </div>
-    </section> 
+    </section>  -->
    
     <!-- ======= Contact Section ======= -->
     <section id="contact" class="contact">
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
-          <h2>Contact Us</h2>
+          <h2>{{ __('messages.contact') }} </h2>
         </div>
 
         <div class="row mt-1 d-flex justify-content-end" data-aos="fade-right" data-aos-delay="100">
@@ -549,19 +450,19 @@ R&D investment destination for leading ISVs across the world.
             <div class="info">
               <div class="address">
                 <i class="bi bi-geo-alt"></i>
-                <h4>Location:</h4>
+                <h4>{{ __('messages.location') }}:</h4>
                 <p>{{$main_settings[0]->address}} {{$main_settings[0]->state}} {{$main_settings[0]->zipCode}}</p>
               </div>
 
               <div class="email">
                 <i class="bi bi-envelope"></i>
-                <h4>Email:</h4>
+                <h4>{{ __('messages.email') }}:</h4>
                 <p>{{$main_settings[0]->email}}</p>
               </div>
 
               <div class="phone">
                 <i class="bi bi-phone"></i>
-                <h4>Call:</h4>
+                <h4>{{ __('messages.call') }}:</h4>
                 <p>{{$main_settings[0]->phone}}</p>
               </div>
 
@@ -606,12 +507,12 @@ R&D investment destination for leading ISVs across the world.
   <!-- ======= Footer ======= -->
   <footer id="footer">
 
-    <div class="footer-newsletter">
+    <!-- <div class="footer-newsletter">
       <div class="container">
         <div class="row">
           <div class="col-lg-6">
-            <h4>What can we help you with?</h4>
-            <p>Provide your email address to let us help you better.</p>
+            <h4>{{ __('messages.help') }}</h4>
+            <p>{{ __('messages.subscribe') }}.</p>
           </div>
           <div class="col-lg-6">
             <form action="" method="post">
@@ -620,7 +521,7 @@ R&D investment destination for leading ISVs across the world.
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
 
     <div class="footer-top">
       <div class="container">
@@ -694,6 +595,7 @@ R&D investment destination for leading ISVs across the world.
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="{{ asset('home_assets/vendor/aos/aos.js') }}"></script>
   <script src="{{ asset('home_assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
   <script src="{{ asset('home_assets/vendor/glightbox/js/glightbox.min.js') }}"></script>
@@ -701,7 +603,19 @@ R&D investment destination for leading ISVs across the world.
   <script src="{{ asset('home_assets/vendor/swiper/swiper-bundle.min.js') }}"></script>
   <!-- Template Main JS File -->
   <script src="{{ asset('home_assets/js/main.js') }}"></script>
+<script>
 
+    var url = "{{ route('lan.change') }}";
+
+    
+
+    $('.changeLang').change(function(){
+
+        window.location.href = url + "?lang=" + $(this).val();
+
+    });
+
+</script>
 </body>
 
 </html>

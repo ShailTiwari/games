@@ -46,13 +46,9 @@
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top d-flex align-items-center ">
     <div class="container d-flex align-items-center justify-content-between">
-
-      <h1 class="logo"><a href="/">{{$main_settings[0]->site_name}}
-
-
-
-
-</a></h1>
+      <h1 class="logo"><a href="/">{{ __('messages.website') }}
+        <!-- {{$main_settings[0]->site_name}} --></a>
+      </h1>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href=index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
@@ -84,27 +80,44 @@
 
 
 
- <section id="about" class="about">
-      <div class="container" data-aos="fade-up">
-  <div class="section-title">
-     <h4>{{$project_info['title']}}</h4>
-    <span>{{$project_info['description']}}</span>
-  
-<table class="table table-bordered">
-  <thead class="thead-dark">
-    <tr class="table-warning" ><th>Date</th><th>Sun</th><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th>
-  </thead>
-  <tbody>
-<?php 
+ <div class="row">
+     <div class="col-sm section-title" data-aos="fade-up">  
+      <h4>{{$project_info['title']}}</h4>
+      <span>{{$project_info['description']}}</span>
+    </div>
+  </div>
+
+<div class="container">
+    <div class="col-sm">
+      <table class="table table-bordered">
+        <thead class="thead-dark">
+          <tr class="table-warning" >
+            <th >{{ __('messages.Date') }}</th>
+            <th>{{ __('messages.Sun') }}</th>
+            <th>{{ __('messages.Mon') }}</th>
+            <th>{{ __('messages.Tue') }}</th>
+            <th>{{ __('messages.Wed') }}</th>
+            <th>{{ __('messages.Thu') }}</th>
+            <th>{{ __('messages.Fri') }}</th>
+            <th>{{ __('messages.Sat') }}</th>
+        </thead>
+        <tbody>
+          <?php 
+             error_reporting(0);
             $years =  array( date("Y",strtotime("-1 year")), date("Y") );
             foreach(range(0, 1) as $i) 
             {
             $year=$years[$i];
-            $months =  array( 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec' );
+            $months =  array( 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec' );
             $months_int =  array( '01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12' );
             $days = array( 31,(strtotime("1 Mar ".$year) - strtotime("1 Feb ".$year)) / ( 24 * 60 * 60 ),31, 30, 31, 30, 31, 31, 30, 31, 30, 31 );
             $wday = array( '', '', '', '', '', '', '' );
-            $cal = array();
+            $cal = array(); 
+            $total_month=11;
+            if($year==date("Y"))
+            {
+              $total_month=date('n', strtotime('-1 month'));
+            }
             foreach(range(0, 11) as $i) 
             {
               $firstday = getdate(strtotime('1 '.$months[$i].' '.$year));
@@ -112,12 +125,17 @@
               $leftday =  7 - ( $fromday + $days[$i] ) % 7;
               $cal[] = array_merge( array_slice($wday, 0, $fromday),
                                     range(1, $days[$i]),
-                                    array_slice($wday, 0, $leftday)
+                                    array_slice($wday, 0, 0)
                                   );
             }
+        ?>
 
-             foreach(range(0, 11) as $i)
-             {
+  <tr>
+<?php 
+             $m=0;
+             foreach(range(0, $total_month) as $i): ?>
+    
+    <?php
               $z='';
               $l1='';
               $l2='';
@@ -128,11 +146,10 @@
               $totaldays = 0;
               $month_int=$i+1;
               $totaldays = cal_days_in_month(CAL_GREGORIAN, $months_int[$i], $year); 
-               $start_date='1';
-     echo "<td class='table-danger' >{$start_date}-{$month_int}-{$year} To {$cal[$i][6]}-{$month_int}-{$year}</td>";
+              $start_date='1';
+    // echo "<td class='table-danger' >{$start_date}-{$month_int}-{$year} To {$cal[$i][6]}-{$month_int}-{$year}</td>";
                 foreach($cal[$i] as $k => $v) 
-                {
-                 
+                {               
 
                    $class_colour="";  
                    $current_date=$v.'-'.$months[$i].'-'.$year; 
@@ -146,9 +163,11 @@
 
                    foreach ($game_result as $key => $val) 
                             {
+
+                              /* echo $v.'-'.$months[$i].'-'.$year.'</br>';
+                              echo $val->start;*/
                              if ($v!='' && $v.'-'.$months[$i].'-'.$year == $val->start) 
                               {
-                                $v.'-'.$months[$i].'-'.$year.'</br>';
                                 $z= $val->result;
                                 $l1= $val->l1;
                                 $l2= $val->l2;
@@ -187,89 +206,91 @@
                               }
                              }
 
-
-
-
-
-
-
       $last_date=$totaldays;
-      if($k && !($k % 7)) 
+      if(!($m % 7)) 
       {
-        if ($totaldays<7+$k && $v!='' && $v>=$totaldays) 
-           {
+        $start=$v;
+        $month_show=$i+1;
+        if ($v=='') 
+        {
+         $last_date=$cal[$i][6+$k];
+         $month_last=$month_show;
+         $start=1;
+        }
+        if ($v!='') 
+        {
+          if ($v+6>$totaldays && $month_show<11) 
+          {   
+            $month_last=$month_show+1;
+            $last_date=$cal[$i+1][6];
+          }
+          else if ($v+6>$totaldays && $month_show>11) 
+          {   
+            $month_last=$month_show;
             $last_date=$totaldays;
-           } 
-
-          else if($cal[$i][6+$k]=='') 
-           {
-            $last_date=$totaldays;
-           } 
-           else
-           {
+          }
+          else 
+          { 
+            $month_last=$month_show;
             $last_date=$cal[$i][6+$k];
-           }
-
-           if ($v!='') 
-           {
-             echo "</tr><tr><td class='table-danger'>{$v}-{$month_int}-{$year} To {$last_date}-{$month_int}-{$year} </td>";
-           }
-           else
-           {
-
-           echo "</tr><tr>";
-           }
-
-      }
-
-    if ($totaldays>=$k && $v!='') 
-      {
-       //echo "<td id=".$current_date." class=".$class_colour.">{$z}</td>";
-       echo "<td  id=".$current_date." class=".$class_colour.">
-       <table class='table table-bordered' >
-       <tr><td>{$l1}</td><td></td><td>{$r1}</td></tr>
-       <tr><td>{$l2}</td><td>{$z}</td><td>{$r2}</td></tr>
-       <tr><td>{$l3}</td><td></td><td>{$r3}</td></tr>
-       </table>
-       </td>";
+          }
+        }
+       echo "</tr><tr><td class='table-danger'>{$start}-{$month_show}-{$year} To {$last_date}-{$month_last}-{$year} </td>";  
       } 
 
-       else if ($totaldays>=$k-4) 
-      {
-       if ($v!='') 
-       {
-          echo "<td  id=".$current_date." class=".$class_colour.">
+
+      if($v!='' && $m>=0 )
+      { 
+
+        echo "<td  id=".$current_date." class=".$class_colour.">
        <table class='table table-bordered' >
        <tr><td>{$l1}</td><td></td><td>{$r1}</td></tr>
        <tr><td>{$l2}</td><td>{$z}</td><td>{$r2}</td></tr>
        <tr><td>{$l3}</td><td></td><td>{$r3}</td></tr>
        </table>
        </td>";
-       }
-       else
-       {
-
-       echo "<td  id=".$current_date." class=".$class_colour.">{$z}</td>";
-       }
+      $m++;
+      }
+     else if($v=='' && $m<7 )
+      { 
+        echo "<td  id=".$current_date." class=".$class_colour.">
+       <table class='table table-bordered' >
+       <tr><td>{$l1}</td><td></td><td>{$r1}</td></tr>
+       <tr><td>{$l2}</td><td>{$z}</td><td>{$r2}</td></tr>
+       <tr><td>{$l3}</td><td></td><td>{$r3}</td></tr>
+       </table>
+       </td>";
+      $m++;
       }
     }
+    endforeach
     ?>
     </tr>
 
 
-<?php } } ?>
+<?php }  ?>
   </tbody>
 </table>
+    </div>
+  </div>
+</div>
 
-        </div>
-        </div>
-  </section>
-  <!-- End Hero -->
 
-  <main id="main">
-   
 
-  </main><!-- End #main -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   <!-- ======= Footer ======= -->
   <footer id="footer">

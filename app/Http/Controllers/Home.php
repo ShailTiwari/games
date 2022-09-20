@@ -3,12 +3,36 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 use App\Models\Project;
 use App\Models\Contact;
 use Illuminate\Support\Facades\DB;
 
 class Home extends Controller
 {
+
+    public function langChange(Request $request)
+
+    {   
+       // return $request->lang;
+        App::setLocale($request->lang);
+        session()->put('locale',$request->lang);
+        return redirect()->back();
+
+    }
+
+
+     public function changeLanguage(Request $request)
+    {
+       /* $validated = $request->validate([
+            'language' => 'required',
+        ]);*/
+
+        \Session::put('language', $request->language);
+        return redirect()->back();
+    }
+
+
       public function index()
     {
       $page_name="Home";

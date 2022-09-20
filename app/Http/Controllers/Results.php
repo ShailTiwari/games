@@ -65,7 +65,7 @@ ON a.id = b.project_id where a.isactive=1 group by a.id   order by a.id asc");
     { 
          $data= new Result();
          $data->project_id=$request->project;
-         $data->result_date=date('Y-m-d');
+         $data->result_date= $request->start;
          $data->l1=$request->l1;
          $data->l2=$request->l2;
          $data->l3=$request->l3;
@@ -77,7 +77,7 @@ ON a.id = b.project_id where a.isactive=1 group by a.id   order by a.id asc");
          $data->isactive='1';
          $data->isdelete='0';
 
-       if(Result::where('result_date', '=',date('Y-m-d'))->where('project_id',$request->project)->count() > 0)
+       if(Result::where('result_date', '=',$request->start)->where('project_id',$request->project)->count() > 0)
        {
        //$data->save();     
        return back()->with('success', 'Result Already exist.  Please Modify!');

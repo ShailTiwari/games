@@ -24,7 +24,8 @@ use App\Http\Controllers\Results;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+    Route::get('lan-change', [Home::class, 'langChange'])->name('lan.change');
+    Route::get('language-change', [Home::class, 'changeLanguage'])->name('changeLanguage');
     Route::resource('/', Home::class);
     Route::get('game_view/{id}', [Home::class, 'view']); 
     Route::get('jodi/{id}', [Home::class, 'jodi']); 

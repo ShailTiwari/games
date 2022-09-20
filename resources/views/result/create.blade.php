@@ -30,6 +30,11 @@
               </div>             
             </div>
 
+               <div class="col mb-0">
+                <label for="date" class="form-label">Date*</label>
+                <input required name="start"  type="date" id="start" class="form-control"/>
+              </div>
+
 
     <label for="emailLarge" class="form-label">Result</label>
     <table class='table table-bordered' >

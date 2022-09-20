@@ -46,7 +46,6 @@
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top d-flex align-items-center ">
     <div class="container d-flex align-items-center justify-content-between">
-
       <h1 class="logo"><a href="/">{{ __('messages.website') }}
         <!-- {{$main_settings[0]->site_name}} --></a>
       </h1>
@@ -81,16 +80,21 @@
 
 
 
- <section id="about" class="about">
-      <div class="container" data-aos="fade-up">
-  <div class="section-title">
-     <h4>{{$project_info['title']}}</h4>
-    <span>{{$project_info['description']}}</span>
-  
+ <div class="row">
+     <div class="col-sm section-title" data-aos="fade-up">  
+      <h4>{{$project_info['title']}}</h4>
+      <span>{{$project_info['description']}}</span>
+    </div>
+  </div>
 
-<table class="table table-bordered">
+<div class="container">
+ 
+
+    <div class="col-sm">
+      <table class="table table-bordered">
   <thead class="thead-dark">
     <tr class="table-warning" >
+      <th >{{ __('messages.Date') }}</th>
       <th>{{ __('messages.Sun') }}</th>
       <th>{{ __('messages.Mon') }}</th>
       <th>{{ __('messages.Tue') }}</th>
@@ -100,17 +104,16 @@
       <th>{{ __('messages.Sat') }}</th>
   </thead>
   <tbody>
-<div class="days">
-@php
+<?php 
             $years =  array( date("Y",strtotime("-1 year")), date("Y") );
             foreach(range(0, 1) as $i) 
             {
             $year=$years[$i];
-            $months =  array( 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec' );
+            $months =  array( 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec' );
             $months_int =  array( '01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12' );
             $days = array( 31,(strtotime("1 Mar ".$year) - strtotime("1 Feb ".$year)) / ( 24 * 60 * 60 ),31, 30, 31, 30, 31, 31, 30, 31, 30, 31 );
             $wday = array( '', '', '', '', '', '', '' );
-            $cal = array();
+            $cal = array(); 
             $total_month=11;
             if($year==date("Y"))
             {
@@ -127,16 +130,24 @@
                                   );
             }
 
-              $m=0;
              foreach(range(0, $total_month) as $i)
-             { 
+             {
               $z='';
+              $l1='';
+              $l2='';
+              $l3='';
+              $r1='';
+              $r2='';
+              $r3='';
               $totaldays = 0;
               $month_int=$i+1;
               $totaldays = cal_days_in_month(CAL_GREGORIAN, $months_int[$i], $year); 
                $start_date='1';
+     echo "<td class='table-danger' >{$start_date}-{$month_int}-{$year} To {$cal[$i][6]}-{$month_int}-{$year}</td>";
                 foreach($cal[$i] as $k => $v) 
-                {   
+                {
+                 
+
                    $class_colour="";  
                    $current_date=$v.'-'.$months[$i].'-'.$year; 
                    $to_date=date("d-M-Y");
@@ -144,6 +155,8 @@
                    {                     
                      $current_date="aa";
                    }
+                   
+
 
                    foreach ($game_result as $key => $val) 
                             {
@@ -151,6 +164,12 @@
                               {
                                 $v.'-'.$months[$i].'-'.$year.'</br>';
                                 $z= $val->result;
+                                $l1= $val->l1;
+                                $l2= $val->l2;
+                                $l3= $val->l3;
+                                $r1= $val->r1;
+                                $r2= $val->r2;
+                                $r3= $val->r3;
                                 $array = str_split($z);
                                 if($array[0]==$array[1])
                                 {
@@ -163,45 +182,118 @@
                               else if ($v!='')
                               {
                                 $z='**';
+                                $l1='*';
+                                $l2='*';
+                                $l3='*';
+                                $r1='*';
+                                $r2='*';
+                                $r3='*';
                               }
                               else
                               {
                                 $z='';
+                                $l1='';
+                                $l2='';
+                                $l3='';
+                                $r1='';
+                                $r2='';
+                                $r3='';
                               }
                              }
+
+
+
+
+
+
+
       $last_date=$totaldays;
-       if(!($m % 7)) echo "</tr><tr>";     
-      if($v!='' && $m>=0 )
+      if($k && !($k % 7)) 
       {
-      echo "<td id=".$current_date." class=".$class_colour.">{$z}</td>";
-      $m++;
+        if ($totaldays<7+$k && $v!='' && $v>=$totaldays) 
+           {
+            $last_date=$totaldays;
+           } 
+
+          else if($cal[$i][6+$k]=='') 
+           {
+            $last_date=$totaldays;
+           } 
+           else
+           {
+            $last_date=$cal[$i][6+$k];
+           }
+
+           if ($v!='') 
+           {
+             echo "</tr><tr><td class='table-danger'>{$v}-{$month_int}-{$year} To {$last_date}-{$month_int}-{$year} </td>";
+           }
+           else
+           {
+
+           echo "</tr><tr>";
+           }
+
       }
-     else if($v=='' && $m<7 )
+
+    if ($totaldays>=$k && $v!='') 
       {
-      echo "<td id=".$current_date." class=".$class_colour.">{$z}</td>";
-      $m++;
+       //echo "<td id=".$current_date." class=".$class_colour.">{$z}</td>";
+       echo "<td  id=".$current_date." class=".$class_colour.">
+       <table class='table table-bordered' >
+       <tr><td>{$l1}</td><td></td><td>{$r1}</td></tr>
+       <tr><td>{$l2}</td><td>{$z}</td><td>{$r2}</td></tr>
+       <tr><td>{$l3}</td><td></td><td>{$r3}</td></tr>
+       </table>
+       </td>";
+      } 
+
+       else if ($totaldays>=$k-4) 
+      {
+       if ($v!='') 
+       {
+          echo "<td  id=".$current_date." class=".$class_colour.">
+       <table class='table table-bordered' >
+       <tr><td>{$l1}</td><td></td><td>{$r1}</td></tr>
+       <tr><td>{$l2}</td><td>{$z}</td><td>{$r2}</td></tr>
+       <tr><td>{$l3}</td><td></td><td>{$r3}</td></tr>
+       </table>
+       </td>";
+       }
+       else
+       {
+
+       echo "<td  id=".$current_date." class=".$class_colour.">{$z}</td>";
+       }
       }
     }
-  }
-   @endphp
+    ?>
     </tr>
 
 
-@php  } @endphp
-
-  </div>
+<?php } } ?>
   </tbody>
 </table>
+    </div>
+  </div>
+</div>
 
-        </div>
-        </div>
-  </section>
-  <!-- End Hero -->
 
-  <main id="main">
-   
 
-  </main><!-- End #main -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   <!-- ======= Footer ======= -->
   <footer id="footer">

@@ -106,7 +106,7 @@
             foreach(range(0, 1) as $i) 
             {
             $year=$years[$i];
-            $months =  array( 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec' );
+            $months =  array( 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec' );
             $months_int =  array( '01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12' );
             $days = array( 31,(strtotime("1 Mar ".$year) - strtotime("1 Feb ".$year)) / ( 24 * 60 * 60 ),31, 30, 31, 30, 31, 31, 30, 31, 30, 31 );
             $wday = array( '', '', '', '', '', '', '' );
@@ -127,7 +127,6 @@
                                   );
             }
 
-              $m=0;
              foreach(range(0, $total_month) as $i)
              { 
               $z='';
@@ -136,7 +135,9 @@
               $totaldays = cal_days_in_month(CAL_GREGORIAN, $months_int[$i], $year); 
                $start_date='1';
                 foreach($cal[$i] as $k => $v) 
-                {   
+                {
+                 
+
                    $class_colour="";  
                    $current_date=$v.'-'.$months[$i].'-'.$year; 
                    $to_date=date("d-M-Y");
@@ -169,25 +170,53 @@
                                 $z='';
                               }
                              }
+
+
+
+
+
+
+
       $last_date=$totaldays;
-       if(!($m % 7)) echo "</tr><tr>";     
-      if($v!='' && $m>=0 )
+      if($k && !($k % 7)) 
       {
-      echo "<td id=".$current_date." class=".$class_colour.">{$z}</td>";
-      $m++;
+        if ($totaldays<7+$k && $v!='' && $v>=$totaldays) 
+           {
+            $last_date=$totaldays;
+           } 
+
+          else if($cal[$i][6+$k]=='') 
+           {
+            $last_date=$totaldays;
+           } 
+           else
+           {
+            $last_date=$cal[$i][6+$k];
+           }
+
+           if ($v!='') 
+           {
+             echo "</tr><tr>";
+           }
+           echo "</tr><tr>";
+
       }
-     else if($v=='' && $m<7 )
+
+    if ($totaldays>=$k && $v!='') 
       {
-      echo "<td id=".$current_date." class=".$class_colour.">{$z}</td>";
-      $m++;
+       echo "<td id=".$current_date." class=".$class_colour.">{$z}</td>";
+      } 
+
+       else if ($totaldays>=$k-4) 
+      {
+       echo "<td  id=".$current_date." class=".$class_colour.">{$z}</td>";
       }
     }
-  }
    @endphp
     </tr>
 
 
-@php  } @endphp
+@php } } @endphp
 
   </div>
   </tbody>

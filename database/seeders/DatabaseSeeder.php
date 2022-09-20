@@ -7,6 +7,9 @@ use Illuminate\Support\Facades\DB;
 use Faker\Factory as Faker;
 use Illuminate\Support\Str;
 use Spatie\Permission\Models\Permission;
+//use Illuminate\Support\Carbon;
+use Carbon\Carbon;
+use Carbon\CarbonPeriod;
 
 class DatabaseSeeder extends Seeder
 {
@@ -18,16 +21,16 @@ class DatabaseSeeder extends Seeder
      public function run() {
         $faker = Faker::create();
 
-         foreach (range(1,100) as $index) 
+         foreach (range(1,5) as $index) 
         {
-            DB::table('users')->insert([                       
+           /* DB::table('users')->insert([                       
                 'name' => $faker->firstName, 
                 'email' => $faker->unique()->freeEmail,
                 'email_verified_at' => now(),
                 'password' => '$10$WQpf4lYexhcp2sPDSJbEhe8RFMHpwiXLM3gjREyGbFi00HWONSAy.', // password
                 'remember_token' => Str::random(10),         
                 'profile_photo_path' =>'profile-photos/no_image.png'
-            ]);
+            ]);*/
 
 
             DB::table('activities')->insert([                       
@@ -108,7 +111,17 @@ class DatabaseSeeder extends Seeder
             ]);
 
 
-                  DB::table('projects')->insert([                       
+               
+
+
+
+        }
+
+
+ foreach (range(1,6) as $index) 
+        {
+              
+               DB::table('projects')->insert([                       
                 'title' => $faker->sentence($nbWords = 3, $variableNbWords = true),
                 'key' => $faker->sentence($nbWords = 1, $variableNbWords = true),
                 'description' => $faker->sentence($nbWords = 10, $variableNbWords = true),           
@@ -126,9 +139,33 @@ class DatabaseSeeder extends Seeder
                 'updated_by' => 1
             ]);
 
+$period = CarbonPeriod::create('2020-09-20', '2022-09-20');
+
+// Iterate over the period
+foreach ($period as $date) {
+    $result_date= $date->format('Y-m-d');
+    DB::table('results')->insert([                       
+                'project_id' => $index,
+                'result_date' => $result_date,
+                'result' => $faker->numberBetween($min = 10, $max = 99),  
+                'l1' => $faker->numberBetween($min = 0, $max = 9),                  
+                'l2' => $faker->numberBetween($min = 0, $max = 9),                  
+                'l3' => $faker->numberBetween($min = 0, $max = 9),                  
+                'r1' => $faker->numberBetween($min = 0, $max = 9),                  
+                'r2' => $faker->numberBetween($min = 0, $max = 9),                  
+                'r3' => $faker->numberBetween($min = 0, $max = 9),                  
+                'remarks' => "Result OK",                       
+                'isactive' => 1,
+                'isdelete' => 0,
+                'inuse' => 1
+            ]);
+}
+
 
 
         }
+
+
 
 
 
